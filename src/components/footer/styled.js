@@ -85,8 +85,7 @@ export const Styled = {
     `,
 
     SocialLinks: styled.div`
-        display: flex;
-        gap: 14px;
+        display: flex; flex-wrap: wrap; gap: 8px;
 
         a {
             height: 38px;
@@ -99,8 +98,7 @@ export const Styled = {
             color: var(--color-text-secondary);
             transition:
                 background 140ms ease,
-                transform 140ms ease,
-                color 140ms ease;
+                box-shadow 140ms ease, color 140ms ease;
 
             svg {
                 font-size: 18px;
@@ -109,7 +107,7 @@ export const Styled = {
             &:hover {
                 background: var(--color-accent-soft);
                 color: var(--color-accent);
-                transform: translateY(-2px);
+                box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
             }
         }
     `,

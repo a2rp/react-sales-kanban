@@ -1,19 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { Styled } from "./App.styled";
 import AppRoutes from "./AppRoutes";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import { useLocation } from "react-router-dom";
 
 const App = () => {
     const mainRef = useRef(null);
-    const location = useLocation();
+    const { pathname } = useLocation();
 
-    // ✅ scroll main container to top on route change
     useEffect(() => {
-        if (!mainRef.current) return;
-        mainRef.current.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    }, [location.pathname]);
+        mainRef.current?.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }, [pathname]);
 
     return (
         <Styled.Wrapper>
@@ -24,7 +22,7 @@ const App = () => {
             <Styled.Main ref={mainRef}>
                 <div className="appRoutesFooterWrapper">
                     <div className="appRoutesWrapper">
-                        <AppRoutes />
+                        <AppRoutes key={pathname} />
                     </div>
                     <div className="footerWrapper">
                         <Footer />

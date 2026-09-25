@@ -1,39 +1,83 @@
-import React from "react";
-import { Styled } from "./styled";
-import { FiGithub, FiLinkedin, FiGlobe, FiFacebook } from "react-icons/fi";
+import { createElement } from "react";
 import { Link } from "react-router-dom";
+import {
+    FaCodepen,
+    FaCoffee,
+    FaEnvelope,
+    FaFacebook,
+    FaGithub,
+    FaGlobe,
+    FaHandHoldingHeart,
+    FaLinkedin,
+    FaPatreon,
+    FaYoutube,
+} from "react-icons/fa";
+import { Styled } from "./styled";
+
+const externalLinks = [
+    { label: "Portfolio", href: "https://www.ashishranjan.net/", icon: FaGlobe },
+    { label: "GitHub", href: "https://github.com/a2rp", icon: FaGithub },
+    { label: "CodePen", href: "https://codepen.io/ash1198", icon: FaCodepen },
+    {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/aashishranjan",
+        icon: FaLinkedin,
+    },
+    {
+        label: "Facebook",
+        href: "https://www.facebook.com/theash.ashish/",
+        icon: FaFacebook,
+    },
+    {
+        label: "YouTube",
+        href: "https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1",
+        icon: FaYoutube,
+    },
+    { label: "Email", href: "mailto:ash.ranjan09@gmail.com", icon: FaEnvelope },
+    {
+        label: "Support",
+        href: "https://a2rp-donation-page.netlify.app/",
+        icon: FaHandHoldingHeart,
+    },
+    {
+        label: "Buy Me a Coffee",
+        href: "https://buymeacoffee.com/a2rp",
+        icon: FaCoffee,
+    },
+    {
+        label: "Patreon",
+        href: "https://www.patreon.com/a2rp",
+        icon: FaPatreon,
+    },
+];
 
 const Footer = () => {
     const year = new Date().getFullYear();
     const buildTime =
         typeof __BUILD_TIME__ !== "undefined"
-            ? `${new Date(__BUILD_TIME__).toLocaleString("en-US", {
+            ? new Date(__BUILD_TIME__).toLocaleString("en-US", {
                   month: "short",
                   day: "2-digit",
                   year: "numeric",
                   hour: "2-digit",
                   minute: "2-digit",
-                  second: "2-digit",
                   hour12: false,
-              })} hrs`
-            : "Development";
+              })
+            : "Development build";
 
     return (
         <Styled.Wrapper>
             <Styled.Container>
                 <Styled.Top>
                     <Styled.BrandSection>
-                        <Styled.BrandTitle>
-                            react - sales kanban
-                        </Styled.BrandTitle>
-
+                        <Styled.BrandTitle>React Sales Kanban</Styled.BrandTitle>
                         <Styled.Description>
-                            A frontend-only sales pipeline board to manage
-                            deals, track stage movement, and review weighted
-                            revenue forecasts with reports and settings.
+                            A frontend sales pipeline board for managing deals,
+                            tracking stages, and reviewing revenue forecasts.
                         </Styled.Description>
-
-                        <span style={{ opacity: 0.7 }}>Build: {buildTime}</span>
+                        <span style={{ opacity: 0.7 }}>
+                            Build: {buildTime}
+                        </span>
                     </Styled.BrandSection>
 
                     <Styled.NavSection>
@@ -47,43 +91,41 @@ const Footer = () => {
 
                     <Styled.SocialSection>
                         <Styled.SectionTitle>Connect</Styled.SectionTitle>
-
                         <Styled.SocialLinks>
-                            <a
-                                href="https://github.com/a2rp"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <FiGithub />
-                            </a>
-                            <a
-                                href="https://www.ashishranjan.net"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <FiGlobe />
-                            </a>
-                            <a
-                                href="https://www.linkedin.com/in/aashishranjan"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <FiLinkedin />
-                            </a>
-                            <a
-                                href="https://www.facebook.com/theash.ashish/"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <FiFacebook />
-                            </a>
+                            {externalLinks.map(({ label, href, icon }) => (
+                                <a
+                                    key={label}
+                                    href={href}
+                                    target={
+                                        href.startsWith("http")
+                                            ? "_blank"
+                                            : undefined
+                                    }
+                                    rel={
+                                        href.startsWith("http")
+                                            ? "noopener noreferrer"
+                                            : undefined
+                                    }
+                                    aria-label={label}
+                                    title={label}
+                                >
+                                    {createElement(icon)}
+                                </a>
+                            ))}
                         </Styled.SocialLinks>
                     </Styled.SocialSection>
                 </Styled.Top>
 
                 <Styled.Bottom>
                     <Styled.Copy>
-                        © {year} Ashish Ranjan. All rights reserved.
+                        Copyright © {year}{" "}
+                        <a
+                            href="https://www.ashishranjan.net/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ashish Ranjan
+                        </a>
                     </Styled.Copy>
 
                     <Styled.LegalLinks>

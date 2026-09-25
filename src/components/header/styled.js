@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const Styled = {
     Wrapper: styled.header`
-        /* position: fixed; */
+        position: fixed;
+        top: 0;
+        left: 0;
         z-index: 1000;
         display: flex;
         justify-content: center;
@@ -90,15 +92,12 @@ export const Styled = {
             align-items: center;
             gap: 8px;
             cursor: pointer;
-            transition:
-                transform 140ms ease,
-                background 140ms ease,
-                color 140ms ease;
+            transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
 
             &:hover {
                 background: rgba(255, 255, 255, 0.08);
                 color: #fff;
-                transform: translateY(-1px);
+                box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
             }
 
             &.active {
@@ -199,15 +198,12 @@ export const Styled = {
             align-items: center;
             gap: 8px;
             cursor: pointer;
-            transition:
-                transform 140ms ease,
-                background 140ms ease,
-                color 140ms ease;
+            transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
 
             &:hover {
                 background: rgba(255, 255, 255, 0.08);
                 color: #fff;
-                transform: translateY(-1px);
+                box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
             }
 
             &.active {
@@ -450,7 +446,7 @@ export const Styled = {
                 border-color 140ms ease;
 
             &:hover {
-                transform: translateY(-1px);
+                box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
                 background: rgba(255, 255, 255, 0.07);
                 border-color: rgba(255, 255, 255, 0.16);
             }

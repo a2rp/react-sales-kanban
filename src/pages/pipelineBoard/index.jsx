@@ -217,7 +217,7 @@ function ImageWithSkeleton({ src, alt, size = 36 }) {
 }
 
 export default function PipelineBoard() {
-    const [stages, setStages] = useState(() => {
+    const [stages] = useState(() => {
         const s = loadJSON(LS_STAGES, null);
         return Array.isArray(s) && s.length ? s : seededStages();
     });
@@ -1135,7 +1135,7 @@ function InspectorPanel({
             nextFollowUp: dateInputValue(deal.nextFollowUpAt),
             expectedClose: dateInputValue(deal.expectedCloseAt),
         });
-    }, [deal.id]);
+    }, [deal.id, deal.company, deal.owner, deal.amount, deal.nextFollowUpAt, deal.expectedCloseAt]);
 
     const currentStage = useMemo(
         () => stages.find((s) => s.id === deal.stageId) || null,
