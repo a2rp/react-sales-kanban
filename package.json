@@ -1,7 +1,8 @@
 {
-    "name": "frontend",
+    "name": "react-sales-kanban",
     "private": true,
     "version": "0.0.0",
+    "description": "Frontend sales Kanban demo for tracking deals, stages, and forecast metrics",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -18,7 +19,7 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-icons": "^5.5.0",
-        "react-router-dom": "6.20.1",
+        "react-router-dom": "^7.18.5",
         "styled-components": "^6.1.18"
     },
     "devDependencies": {

@@ -18,12 +18,12 @@ React, Vite, React Router, styled-components, Material UI, and React Icons.
 
 ## Run locally
 
-\`\`\`bash
+```bash
 npm install
 npm run dev
-\`\`\`
+```
 
-Create a production build with \`npm run build\`. Deploy to GitHub Pages with \`npm run deploy\`.
+Create a production build with `npm run build`. Deploy to GitHub Pages with `npm run deploy`.
 
 ## Links
 
